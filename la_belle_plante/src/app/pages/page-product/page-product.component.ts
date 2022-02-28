@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PlantService } from 'src/app/services/plant.service';
+import { AvisBarComponent } from 'src/app/components/avis-bar/avis-bar.component';
 import * as _ from 'underscore';
 
 @Component({
@@ -9,32 +10,14 @@ import * as _ from 'underscore';
   styleUrls: ['./page-product.component.scss'],
 })
 export class PageProductComponent implements OnInit {
-  private data: any[] | undefined;
-  public listCategories!: string[];
-  private subListProduct: Subscription;
-  public listProduct!: any[];
+  @Input() plant: any;
+  public lengthListProduct!: number;
 
   constructor(private plantService: PlantService) {
-    this.subListProduct = this.plantService.subjectListProduct$.subscribe(
-      (response) => {
-        console.log(response);
-        this.data = response;
-        this.listCategories = _.uniq(
-          this.data.map((x) => x.product_breadcrumb_label)
-        );
-        console.log(this.listCategories);
-
-        response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
-        this.listProduct = [...response];
-      }
-    );
-
-    this.plantService.getListProductsChaud();
+    this.plantService.subjectListProduct$.subscribe((data) => {
+      this.lengthListProduct = data.length;
+    });
   }
 
   ngOnInit(): void {}
-
-  ngOnDestroy(): void {
-    this.subListProduct.unsubscribe();
-  }
 }

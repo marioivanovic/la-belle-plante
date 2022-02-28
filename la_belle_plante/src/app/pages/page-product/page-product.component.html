@@ -1,4 +1,4 @@
-<div class="d-flex align-items-stretch">
+<div class="overview d-flex align-items-stretch">
   <div class="custom-main container p-3">
     <input
       class="form-control"
@@ -6,8 +6,23 @@
       placeholder="Recherche ta belle plante"
       aria-label="Recherche ta belle plante"
     />
-    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
-      <div *ngFor="let product of listProduct" class="col"></div>
+    <div class="row">
+      <img
+        src="{{ plant.product_url_picture }}"
+        class="card-img"
+        alt="image de {{ plant.product_name }}"
+      />
+      <div class="product-content">
+        <app-avis-bar></app-avis-bar>
+      </div>
+      <div>
+        <h2>{{ plant.product_name }}</h2>
+      </div>
+      <span class="align-bottom"> {{ plant.product_unitprice_ati }} € </span>
+      <div>
+        <h4>{{ plant.product_instock }}</h4>
+      </div>
+      <a href="#" class="btn btn-success">Ajouter au panier !</a>
     </div>
   </div>
 </div>
