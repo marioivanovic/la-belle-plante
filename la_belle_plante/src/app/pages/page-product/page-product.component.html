@@ -1,18 +1,13 @@
-<div class="plant card" style="width: 14rem;">
-
-  <app-icon class="like" [name]="'heart'" [color]="'#e35d6a'"></app-icon>
-
-  <img src="{{plant.product_url_picture}}" class="card-img-top" alt="image de {{plant.product_name}}">
-  <div class="card-body">
-      <h6 class="card-title"> {{plant.product_name}} </h6>
-      <div class="card-content">
-          <app-avis-bar></app-avis-bar>
-      </div>
-      <div class="d-flex flex-row align-items-end justify-content-between">
-          <div class="card-content">
-              <span class="align-bottom"> {{plant.product_unitprice_ati}} € </span>
-          </div>
-          <a href="#" class="btn btn-success">Pour moi !</a>
-      </div>
+<div class="d-flex align-items-stretch">
+  <div class="custom-main container p-3">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Recherche ta belle plante"
+      aria-label="Recherche ta belle plante"
+    />
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
+      <div *ngFor="let product of listProduct" class="col"></div>
+    </div>
   </div>
 </div>
