@@ -16,7 +16,11 @@
       <div class="card-content">
         <span class="align-bottom"> {{ plant.product_unitprice_ati }} € </span>
       </div>
-      <a routerLink="/product/{{ plant.product_id }}" class="btn btn-success"
+      <a
+        [routerLink]="['/product/']"
+        [queryParams]="{ id: plant.product_id }"
+        queryParamsHandling="merge"
+        class="btn btn-success"
         >Pour moi !</a
       >
     </div>

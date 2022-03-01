@@ -6,7 +6,7 @@ import * as _ from 'underscore';
 @Component({
   selector: 'app-page-accueil',
   templateUrl: './page-accueil.component.html',
-  styleUrls: ['./page-accueil.component.scss']
+  styleUrls: ['./page-accueil.component.scss'],
 })
 export class PageAccueilComponent implements OnInit {
   // private data!: any[]; same as below
@@ -16,27 +16,29 @@ export class PageAccueilComponent implements OnInit {
   public listProduct!: any[];
 
   constructor(private plantService: PlantService) {
+    this.subListProduct = this.plantService.subjectListProduct$.subscribe(
+      (response) => {
+        console.log('here', response);
+        this.data = response;
+        this.listCategories = _.uniq(
+          this.data.map((x) => x.product_breadcrumb_label)
+        );
+        console.log(this.listCategories);
 
-    this.subListProduct = this.plantService.subjectListProduct$.subscribe(response => {
-      console.log(response);
-      this.data = response;
-      this.listCategories = _.uniq(this.data.map(x => x.product_breadcrumb_label));
-      console.log(this.listCategories);
-      
-      response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
-      this.listProduct = [...response];
-    })
+
+        response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
+        this.listProduct = [...response];
+        
+      }
+    );
 
     this.plantService.getListProductsChaud();
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   // methode de cycle de vie de mon composant qui est executée juste avant que l'instance de mon composant soit détruite
   ngOnDestroy(): void {
     this.subListProduct.unsubscribe();
   }
-
 }
