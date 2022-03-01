@@ -5,8 +5,7 @@
         paramétrable par son parent.
     -->
     <div class="custom-main container p-3">
-        <input class="form-control" type="text" placeholder="Recherche ta belle plante"
-            aria-label="Recherche ta belle plante">
+        <app-searchbar [(ngModel)]="term" (searchEvent)="addItem($event)"></app-searchbar>
 
         <div class="py-3">
             Trier par : 

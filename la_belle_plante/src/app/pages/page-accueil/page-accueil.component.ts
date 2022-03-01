@@ -14,6 +14,7 @@ export class PageAccueilComponent implements OnInit {
   public listCategories!: string[];
   private subListProduct: Subscription;
   public listProduct!: any[];
+  public term!: "";
 
   constructor(private plantService: PlantService) {
 
@@ -28,6 +29,7 @@ export class PageAccueilComponent implements OnInit {
     })
 
     this.plantService.getListProductsChaud();
+    
   }
 
   ngOnInit(): void {
@@ -39,4 +41,18 @@ export class PageAccueilComponent implements OnInit {
     this.subListProduct.unsubscribe();
   }
 
+  addItem(term: any) {
+    console.log(term);
+    if (term.trim() != '') {
+      this.listProduct = this.listProduct.filter((product) => {
+          return (product.product_name.toLowerCase().indexOf(term.toLowerCase()) > -1)
+      })
+    } else {
+      this.plantService.subjectListProduct$.subscribe(products => {
+          console.log(products);
+          this.listProduct = products;
+      })
+      this.plantService.getListProductsChaud();
+    }
+  }
 }
