@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { PlantService } from 'src/app/services/plant.service';
+import { AvisBarComponent } from 'src/app/components/avis-bar/avis-bar.component';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-page-product',
@@ -6,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-product.component.scss'],
 })
 export class PageProductComponent implements OnInit {
-  private data: any[] | undefined;
-  public listCategories!: string[];
-  public listProduct!: any[];
-  constructor() {}
+  @Input() plant: any;
+  public lengthListProduct!: number;
+
+  constructor(private plantService: PlantService) {
+    this.plantService.subjectListProduct$.subscribe((data) => {
+      this.lengthListProduct = data.length;
+    });
+  }
 
   ngOnInit(): void {}
 }

@@ -1,18 +1,28 @@
-<div class="plant card" style="width: 14rem;">
-
-  <app-icon class="like" [name]="'heart'" [color]="'#e35d6a'"></app-icon>
-
-  <img src="{{plant.product_url_picture}}" class="card-img-top" alt="image de {{plant.product_name}}">
-  <div class="card-body">
-      <h6 class="card-title"> {{plant.product_name}} </h6>
-      <div class="card-content">
-          <app-avis-bar></app-avis-bar>
+<div class="overview d-flex align-items-stretch">
+  <div class="custom-main container p-3">
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Recherche ta belle plante"
+      aria-label="Recherche ta belle plante"
+    />
+    <div class="row">
+      <img
+        src="{{ plant.product_url_picture }}"
+        class="card-img"
+        alt="image de {{ plant.product_name }}"
+      />
+      <div class="product-content">
+        <app-avis-bar></app-avis-bar>
       </div>
-      <div class="d-flex flex-row align-items-end justify-content-between">
-          <div class="card-content">
-              <span class="align-bottom"> {{plant.product_unitprice_ati}} € </span>
-          </div>
-          <a href="#" class="btn btn-success">Pour moi !</a>
+      <div>
+        <h2>{{ plant.product_name }}</h2>
       </div>
+      <span class="align-bottom"> {{ plant.product_unitprice_ati }} € </span>
+      <div>
+        <h4>{{ plant.product_instock }}</h4>
+      </div>
+      <a href="#" class="btn btn-success">Ajouter au panier !</a>
+    </div>
   </div>
 </div>

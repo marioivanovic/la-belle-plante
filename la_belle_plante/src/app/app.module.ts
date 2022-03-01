@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { PageDetailsComponent } from './pages/page-details/page-details.component';
+import { PageProductComponent } from './pages/page-product/page-product.component';
 import { PagePanierComponent } from './pages/page-panier/page-panier.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FilterSideBarComponent } from './components/filter-side-bar/filter-side-bar.component';
@@ -20,19 +21,16 @@ import { AvisBarComponent } from './components/avis-bar/avis-bar.component';
     NavBarComponent,
     PageAccueilComponent,
     PageDetailsComponent,
+    PageProductComponent,
     PagePanierComponent,
     PageNotFoundComponent,
     FilterSideBarComponent,
     CardPlantComponent,
     IconComponent,
-    AvisBarComponent
+    AvisBarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
