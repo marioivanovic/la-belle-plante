@@ -1,4 +1,4 @@
-name: labelleplabte
+name: labelleplante
 on: 
   push:
     branches: [ development ]
