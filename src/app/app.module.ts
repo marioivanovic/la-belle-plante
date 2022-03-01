@@ -30,9 +30,16 @@ import { FilterPipe } from './Pipe/filter.pipe';
     FilterSideBarComponent,
     CardPlantComponent,
     IconComponent,
-    AvisBarComponent
+    AvisBarComponent,
+    FilterPipe
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

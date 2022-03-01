@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PlantService {
   baseUrl: string;
+  
   public search = new BehaviorSubject<string>("");
 
 
