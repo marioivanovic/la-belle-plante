@@ -62,12 +62,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "labelleplantetest" #Must be unique in Heroku
           heroku_email: "ivanovic.mario@gmail.com"
-
-    steps: 
-    - name: Dowload artifact
-      uses: actions/download-artifact@v2
-      with: 
-        name: devops-test-${{ github.run_id }}-${{ github.run_number }} 
-        path: './build'
     
     #  TO COMPLETE TO DEPLOY
