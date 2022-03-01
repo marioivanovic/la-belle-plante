@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PageAccueilComponent } from './pages/page-accueil/page-accueil.component';
 import { PageDetailsComponent } from './pages/page-details/page-details.component';
+import { PageProductComponent } from './pages/page-product/page-product.component';
 import { PagePanierComponent } from './pages/page-panier/page-panier.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageProductComponent } from './pages/page-product/page-product.component';
@@ -23,6 +24,7 @@ import { FilterPipe } from './Pipe/filter.pipe';
     NavBarComponent,
     PageAccueilComponent,
     PageDetailsComponent,
+    PageProductComponent,
     PagePanierComponent,
     PageNotFoundComponent,
     PageProductComponent,
@@ -30,6 +32,7 @@ import { FilterPipe } from './Pipe/filter.pipe';
     CardPlantComponent,
     IconComponent,
     AvisBarComponent,
+<<<<<<< HEAD
     FilterPipe
   ],
   imports: [
@@ -38,8 +41,11 @@ import { FilterPipe } from './Pipe/filter.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
+=======
+>>>>>>> 65eb95485a930b6bbab3ae34f90cddba2ab15581
   ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
