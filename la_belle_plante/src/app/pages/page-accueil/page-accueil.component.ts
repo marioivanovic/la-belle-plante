@@ -15,6 +15,9 @@ export class PageAccueilComponent implements OnInit {
   private subListProduct: Subscription;
   public listProduct!: any[];
 
+  searchKey: string = "";
+  searchTerm: string = "";
+
   constructor(private plantService: PlantService) {
 
     this.subListProduct = this.plantService.subjectListProduct$.subscribe(response => {
@@ -28,15 +31,26 @@ export class PageAccueilComponent implements OnInit {
     })
 
     this.plantService.getListProductsChaud();
+
+    
   }
 
   ngOnInit(): void {
-
+    this.plantService.search.subscribe((val:any) =>{
+      this.searchKey = val;
+    })
   }
 
   // methode de cycle de vie de mon composant qui est executée juste avant que l'instance de mon composant soit détruite
   ngOnDestroy(): void {
     this.subListProduct.unsubscribe();
   }
+
+  Search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm);
+    this.plantService.search.next(this.searchTerm);
+    console.log(this.searchKey)
+ }
 
 }

@@ -8,6 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class PlantService {
   baseUrl: string;
+  public search = new BehaviorSubject<string>("");
+
 
   subjectListProduct$ = new Subject<any[]>();
 
@@ -87,4 +89,5 @@ export class PlantService {
       this.subjectListProduct$.next(data);
     })
   }
+
 }

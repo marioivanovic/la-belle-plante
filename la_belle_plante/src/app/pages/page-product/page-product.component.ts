@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-page-product',
@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-product.component.scss'],
 })
 export class PageProductComponent implements OnInit {
+  @Input() plant: any;
   private data: any[] | undefined;
   public listCategories!: string[];
   public listProduct!: any[];
+
   constructor() {}
 
   ngOnInit(): void {}
