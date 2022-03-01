@@ -6,11 +6,12 @@
         la propriété de l'enfant possède un décorateur @Input pour rendre sa valeur
         paramétrable par son parent.
     -->
-<<<<<<< HEAD:src/app/pages/page-accueil/page-accueil.component.html
   <div class="custom-main container p-3">
     <input
       class="form-control"
       type="text"
+      [(ngModel)]="searchTerm"
+      (keyup)="Search($event)"
       placeholder="Recherche ta belle plante"
       aria-label="Recherche ta belle plante"
     />
@@ -20,27 +21,14 @@
       <button class="btn btn-outline-success btn-sm me-2">Prix</button>
       <button class="btn btn-outline-success btn-sm me-2">Ordre Alpha</button>
       <button class="btn btn-outline-success btn-sm me-2">Avis</button>
-=======
-    <div class="custom-main container p-3">
-        <input class="form-control" type="text" [(ngModel)]="searchTerm" (keyup)="Search($event)" placeholder="Recherche ta belle plante" 
-            aria-label="Recherche ta belle plante">
-
-        <div class="py-3">
-            Trier par : 
-            <button class="btn btn-outline-success btn-sm me-2">Prix</button> 
-            <button class="btn btn-outline-success btn-sm me-2">Ordre Alpha</button> 
-            <button class="btn btn-outline-success btn-sm me-2">Avis</button>
-        </div>
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
-            <div *ngFor="let product of listProduct | filter: searchKey:'product_name'" class="col">
-                <app-card-plant [plant]="product"></app-card-plant>
-            </div>
-        </div>
->>>>>>> 408a08433fe7f731a1f54b0225b66c87c86011b9:la_belle_plante/src/app/pages/page-accueil/page-accueil.component.html
     </div>
     <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
-      <div *ngFor="let product of listProduct" class="col">
+      <div
+        *ngFor="let product of listProduct | filter: searchKey:'product_name'"
+        class="col"
+      >
         <app-card-plant [plant]="product"></app-card-plant>
       </div>
     </div>
+  </div>
 </div>
