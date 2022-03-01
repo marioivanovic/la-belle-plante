@@ -40,21 +40,16 @@ export class PageAccueilComponent implements OnInit {
     
   }
 
-<<<<<<< HEAD
   ngOnInit(): void {
     this.plantService.search.subscribe((val:any) =>{
       this.searchKey = val;
     })
   }
-=======
-  ngOnInit(): void {}
->>>>>>> 65eb95485a930b6bbab3ae34f90cddba2ab15581
 
   // methode de cycle de vie de mon composant qui est executée juste avant que l'instance de mon composant soit détruite
   ngOnDestroy(): void {
     this.subListProduct.unsubscribe();
   }
-<<<<<<< HEAD
 
   Search(event:any){
     this.searchTerm = (event.target as HTMLInputElement).value;
@@ -63,6 +58,4 @@ export class PageAccueilComponent implements OnInit {
     console.log(this.searchKey)
  }
 
-=======
->>>>>>> 65eb95485a930b6bbab3ae34f90cddba2ab15581
 }

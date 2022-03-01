@@ -10,7 +10,6 @@ import { PageDetailsComponent } from './pages/page-details/page-details.componen
 import { PageProductComponent } from './pages/page-product/page-product.component';
 import { PagePanierComponent } from './pages/page-panier/page-panier.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { PageProductComponent } from './pages/page-product/page-product.component';
 import { FilterSideBarComponent } from './components/filter-side-bar/filter-side-bar.component';
 import { CardPlantComponent } from './components/card-plant/card-plant.component';
 import { IconComponent } from './components/icon/icon.component';
@@ -32,7 +31,6 @@ import { FilterPipe } from './Pipe/filter.pipe';
     CardPlantComponent,
     IconComponent,
     AvisBarComponent,
-<<<<<<< HEAD
     FilterPipe
   ],
   imports: [
@@ -41,10 +39,7 @@ import { FilterPipe } from './Pipe/filter.pipe';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
-=======
->>>>>>> 65eb95485a930b6bbab3ae34f90cddba2ab15581
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

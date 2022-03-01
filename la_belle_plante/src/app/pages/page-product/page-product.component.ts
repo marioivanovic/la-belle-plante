@@ -1,11 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { PlantService } from 'src/app/services/plant.service';
-import * as _ from 'underscore';
->>>>>>> 65eb95485a930b6bbab3ae34f90cddba2ab15581
 
 @Component({
   selector: 'app-page-product',
@@ -13,19 +8,11 @@ import * as _ from 'underscore';
   styleUrls: ['./page-product.component.scss'],
 })
 export class PageProductComponent implements OnInit {
-<<<<<<< HEAD
   @Input() plant: any;
   private data: any[] | undefined;
   public listCategories!: string[];
   public listProduct!: any[];
 
-  constructor() {}
-=======
-  // private data: any[] | undefined;
-  // private subListProduct: Subscription;
-  // public listProduct!: any[];
-  public plant: any;
->>>>>>> 65eb95485a930b6bbab3ae34f90cddba2ab15581
 
   constructor(
     private plantService: PlantService,
