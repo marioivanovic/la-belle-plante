@@ -65,7 +65,7 @@ export class PageAccueilComponent implements OnInit {
       if (term.trim() != '') {
         this.listProduct = products.filter(product => {
           return (
-            product.product_name.toLowerCase().indexOf(term.toLowerCase()) > -1
+            product.name.toLowerCase().indexOf(term.toLowerCase()) > -1
           );
         });
       } else {
@@ -79,12 +79,11 @@ export class PageAccueilComponent implements OnInit {
     this.plantService.subjectListProduct$.subscribe(listProduct => {
       this.listProduct = listProduct.filter(product => {
         return (
-          product.product_unitprice_ati >= $event.value &&
-          product.product_unitprice_ati <= $event.highValue
+          product.unitprice_ati >= $event.value &&
+          product.unitprice_ati <= $event.highValue
         );
       });
-      console.log('yoo');
-      console.log(listProduct);
+      console.log('yoo', listProduct);
     });
     this.plantService.getListProductsChaud();
   }
