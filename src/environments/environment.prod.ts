@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrlApi: 'https://url-api-prod'
+  baseUrlApi: 'https://la-belle-plante-test.herokuapp.com/'
 };
