@@ -14,8 +14,9 @@ import { FilterSideBarComponent } from './components/filter-side-bar/filter-side
 import { CardPlantComponent } from './components/card-plant/card-plant.component';
 import { IconComponent } from './components/icon/icon.component';
 import { AvisBarComponent } from './components/avis-bar/avis-bar.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FilterPipe } from './Pipe/filter.pipe';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,14 +32,14 @@ import { FilterPipe } from './Pipe/filter.pipe';
     CardPlantComponent,
     IconComponent,
     AvisBarComponent,
-    FilterPipe
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

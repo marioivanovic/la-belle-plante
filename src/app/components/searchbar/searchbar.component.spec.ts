@@ -2,21 +2,21 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilterSideBarComponent } from '../filter-side-bar/filter-side-bar.component';
+import { SearchbarComponent } from './searchbar.component';
 
-describe('FilterSideBarComponent', () => {
-  let component: FilterSideBarComponent;
-  let fixture: ComponentFixture<FilterSideBarComponent>;
+describe('SearchbarComponent', () => {
+  let component: SearchbarComponent;
+  let fixture: ComponentFixture<SearchbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilterSideBarComponent ]
+      declarations: [ SearchbarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FilterSideBarComponent);
+    fixture = TestBed.createComponent(SearchbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
