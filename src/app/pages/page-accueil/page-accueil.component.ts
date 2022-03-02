@@ -40,7 +40,7 @@ export class PageAccueilComponent implements OnInit {
         console.log('here', response);
         this.data = response;
         this.listCategories = _.uniq(this.data.map(x => x.breadcrumb_label));
-        console.log(this.listCategories);
+        console.log("List =>",this.listCategories);
 
         response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
         this.listProduct = [...response];
