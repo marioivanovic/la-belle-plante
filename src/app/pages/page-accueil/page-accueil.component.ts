@@ -39,9 +39,7 @@ export class PageAccueilComponent implements OnInit {
       response => {
         console.log('here', response);
         this.data = response;
-        this.listCategories = _.uniq(
-          this.data.map(x => x.product_breadcrumb_label)
-        );
+        this.listCategories = _.uniq(this.data.map(x => x.breadcrumb_label));
         console.log(this.listCategories);
 
         response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
@@ -64,9 +62,7 @@ export class PageAccueilComponent implements OnInit {
     this.plantService.subjectListProduct$.subscribe(products => {
       if (term.trim() != '') {
         this.listProduct = products.filter(product => {
-          return (
-            product.name.toLowerCase().indexOf(term.toLowerCase()) > -1
-          );
+          return product.name.toLowerCase().indexOf(term.toLowerCase()) > -1;
         });
       } else {
         this.listProduct = products;
