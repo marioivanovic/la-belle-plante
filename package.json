@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "json:server": "json-server --watch products.json",
     "lint": "ng lint",
-    "heroku-postbuild": "ng build —-configuration production"
+    "heroku-postbuild": "ng build --configuration production"
   },
   "private": true,
   "dependencies": {
