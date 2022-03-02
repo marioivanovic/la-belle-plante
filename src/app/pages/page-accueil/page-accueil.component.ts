@@ -25,11 +25,11 @@ export class PageAccueilComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return '<b>Min price:</b> $' + value;
+          return value + '€';
         case LabelType.High:
-          return '<b>Max price:</b> $' + value;
+          return value + '€';
         default:
-          return '$' + value;
+          return value + '€';
       }
     }
   };
