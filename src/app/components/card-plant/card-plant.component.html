@@ -12,13 +12,12 @@
       <div class="card-content">
         <span class="align-bottom"> {{ plant?.unitprice_ati }} € </span>
       </div>
-      <a
+    <a
         [routerLink]="['/product/']"
         [queryParams]="{ id: plant.id }"
         queryParamsHandling="merge"
         class="btn btn-success"
-        >Pour moi !</a
-      >
+       >Voir</a>
     </div>
   </div>
 </div>
