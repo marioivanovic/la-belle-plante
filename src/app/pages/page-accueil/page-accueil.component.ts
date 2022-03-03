@@ -18,7 +18,7 @@ export class PageAccueilComponent implements OnInit {
   public term!: '';
   public listProductFiltered!: any[];
   public isAscendingSort: boolean = false;
-  public tab: any = [];
+  public table: any = [];
 
   min: number = 0;
   max: number = 150;
@@ -28,26 +28,17 @@ export class PageAccueilComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return value + '<b> Mini</b> €';
+          return '<b>Min price:</b> $' + value;
         case LabelType.High:
-          return value + '<b> Max</b> €';
+          return '<b>Max price:</b> $' + value;
         default:
-          return value + '€';
+          return '$' + value;
       }
     }
   };
 
   constructor(private plantService: PlantService) {
-    this.subListProduct = this.plantService.subjectListProduct$.subscribe(
-      response => {
-        this.data = response;
-        this.listCategories = _.uniq(this.data.map(x => x.breadcrumb_label));
-        console.log('List =>', this.listCategories);
-
-        response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
-        this.listProduct = [...response];
-      }
-    );
+    console.log('table', this.table);
 
     this.subListProduct = this.plantService.subjectListProduct$.subscribe(
       response => {
@@ -74,9 +65,10 @@ export class PageAccueilComponent implements OnInit {
   }
 
   addItem(term: any) {
+    console.log(term);
     this.plantService.subjectListProduct$.subscribe(products => {
       if (term.trim() != '') {
-        this.listProduct = products.filter(product => {
+        this.listProductFiltered = products.filter(product => {
           return product.name.toLowerCase().indexOf(term.toLowerCase()) > -1;
         });
       } else {
@@ -97,8 +89,8 @@ export class PageAccueilComponent implements OnInit {
       // console.log($event.value)
       // console.log($event.highValue)
       console.log(listProductFiltered);
-      this.tab = [$event.value, $event.highValue];
-      console.log(this.tab);
+      this.table = [$event.value, $event.highValue];
+      console.log(this.table);
     });
     this.plantService.getListProductsChaud();
   }
@@ -124,8 +116,11 @@ export class PageAccueilComponent implements OnInit {
       this.listProductFiltered = this.listProduct.filter(x =>
         event.includes(x.breadcrumb_label)
       );
+      console.log('check >', this.table[0] + ' ' + this.table[1]);
+
       this.listProductFiltered = this.listProductFiltered.filter(
-        x => x.unitprice_ati >= this.tab[0] && x.unitprice_ati <= this.tab[1]
+        x =>
+          x.unitprice_ati >= this.table[0] && x.unitprice_ati <= this.table[1]
       );
     } else {
       this.listProductFiltered = this.listProduct;

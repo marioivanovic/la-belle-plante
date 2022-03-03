@@ -1,27 +1,35 @@
 <div class="d-flex align-items-stretch">
-    <app-filter-side-bar [listCategoriesFilter]="listCategories" (filterArray)="changeCategory($event)"></app-filter-side-bar>
-    <!-- Ici on communique du parent vers l'enfant à l'aide du property binding   
-        la propriété de l'enfant possède un décorateur @Input pour rendre sa valeur 
-        paramétrable par son parent.
-    -->
+  <app-filter-side-bar
+    [listCategoriesFilter]="listCategories"
+    (filterArray)="changeCategory($event)"
+  ></app-filter-side-bar>
+  <!-- Ici on communique du parent vers l'enfant à l'aide du property binding
+      la propriété de l'enfant possède un décorateur @Input pour rendre sa valeur
+      paramétrable par son parent.
+  -->
 
-
-    <div class="custom-main container p-3">
-
-        <div class="custom-search">
-            <app-searchbar (searchEvent)="addItem($event)" class="bar"></app-searchbar>
-            <app-btn-filter (click)="onClickBtn($event)"></app-btn-filter>
-        </div>
-
-        <div class="custom-slider">
-	        <ngx-slider [(value)]="min" [(highValue)]="max" [options]="options" (userChangeEnd)="displayItem($event)"></ngx-slider>
-        </div>
-
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
-            <div *ngFor="let product of listProductFiltered" class="col">
-                <app-card-plant [plant]="product"></app-card-plant>
-            </div>
-        </div>
-
+  <div class="custom-main container p-3">
+    <div class="custom-search">
+      <app-searchbar
+        (searchEvent)="addItem($event)"
+        class="bar"
+      ></app-searchbar>
+      <app-btn-filter (click)="onClickBtn($event)"></app-btn-filter>
     </div>
+
+    <div class="custom-slider">
+      <ngx-slider
+        [(value)]="min"
+        [(highValue)]="max"
+        [options]="options"
+        (userChangeEnd)="displayItem($event)"
+      ></ngx-slider>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-4">
+      <div *ngFor="let product of listProductFiltered" class="col">
+        <app-card-plant [plant]="product"></app-card-plant>
+      </div>
+    </div>
+  </div>
 </div>
