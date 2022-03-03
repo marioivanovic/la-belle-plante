@@ -17,6 +17,7 @@ import { AvisBarComponent } from './components/avis-bar/avis-bar.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { FormsModule } from '@angular/forms';
+import { BtnFilterComponent } from './components/btn-filter/btn-filter.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     CardPlantComponent,
     IconComponent,
     AvisBarComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    BtnFilterComponent
   ],
   imports: [
     BrowserModule,

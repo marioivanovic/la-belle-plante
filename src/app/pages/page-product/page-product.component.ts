@@ -9,15 +9,19 @@ import * as _ from 'underscore';
   styleUrls: ['./page-product.component.scss']
 })
 export class PageProductComponent implements OnInit {
+
   private data: any[] | undefined;
+
   // private subListProduct: Subscription;
   // public listProduct!: any[];
+  private data: any[] | undefined;
   public plant: any;
 
   constructor(
     private plantService: PlantService,
     private active: ActivatedRoute
   ) {
+
     // this.subListProduct = this.plantService.subjectListProduct$.subscribe(
     //   (response) => {
     //     this.data = response;
