@@ -10,12 +10,10 @@ export class FilterSideBarComponent implements OnInit {
 
   constructor() {
     this.listCategoriesFilter = [];
-    console.log(' =>', this.listCategoriesFilter);
   }
 
   ngOnInit(): void {}
 
   public onChangeValue(eventValue: any): void {
-    console.log('Event Change :', eventValue);
   }
 }

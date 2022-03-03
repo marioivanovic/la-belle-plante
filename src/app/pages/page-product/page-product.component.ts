@@ -9,7 +9,7 @@ import * as _ from 'underscore';
   styleUrls: ['./page-product.component.scss']
 })
 export class PageProductComponent implements OnInit {
-  // private data: any[] | undefined;
+  private data: any[] | undefined;
   // private subListProduct: Subscription;
   // public listProduct!: any[];
   public plant: any;
@@ -20,27 +20,29 @@ export class PageProductComponent implements OnInit {
   ) {
     // this.subListProduct = this.plantService.subjectListProduct$.subscribe(
     //   (response) => {
-    //     console.log('hop', response);
     //     this.data = response;
     //     this.listProduct = _.uniq(this.data.map((x) => x));
-    //     console.log('coucou', this.listProduct);
     //     response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
     //     this.listProduct = [...response];
     //   }
     // );
     // this.plantService.getListProductsChaud();
-  }
-
-  ngOnInit(): void {
     const id = this.active.snapshot.queryParamMap.get('id');
 
     if (id) {
       this.plantService.getById(id).subscribe(product => {
         console.log('detail ----> ', product);
+        this.data = product;
+        this.plant = _.uniq(this.data.map(x => x));
+        console.log('Plant =>', this.plant[0]);
+
         this.plant = product[0];
       });
+      this.plantService.getById(id);
     }
   }
+
+  ngOnInit(): void {}
 
   // methode de cycle de vie de mon composant qui est executée juste avant que l'instance de mon composant soit détruite
   ngOnDestroy(): void {}

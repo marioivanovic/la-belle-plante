@@ -17,8 +17,8 @@ export class PageAccueilComponent implements OnInit {
   public listProduct!: any[];
   public term!: '';
 
-  min: number = 30;
-  max: number = 120;
+  min: number = 0;
+  max: number = 150;
   options: Options = {
     floor: 0,
     ceil: 150,
@@ -37,10 +37,9 @@ export class PageAccueilComponent implements OnInit {
   constructor(private plantService: PlantService) {
     this.subListProduct = this.plantService.subjectListProduct$.subscribe(
       response => {
-        console.log('here', response);
         this.data = response;
         this.listCategories = _.uniq(this.data.map(x => x.breadcrumb_label));
-        console.log("List =>",this.listCategories);
+        console.log('List =>', this.listCategories);
 
         response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
         this.listProduct = [...response];
@@ -58,7 +57,7 @@ export class PageAccueilComponent implements OnInit {
   }
 
   addItem(term: any) {
-    console.log(term);
+
     this.plantService.subjectListProduct$.subscribe(products => {
       if (term.trim() != '') {
         this.listProduct = products.filter(product => {
@@ -79,7 +78,6 @@ export class PageAccueilComponent implements OnInit {
           product.unitprice_ati <= $event.highValue
         );
       });
-      console.log('yoo', listProduct);
     });
     this.plantService.getListProductsChaud();
   }
