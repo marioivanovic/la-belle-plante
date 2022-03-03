@@ -1,6 +1,8 @@
 <div *ngIf="plant" class="overview d-flex align-items-stretch">
   <div class="custom-main container p-3">
     <div class="row">
+      <h2>{{ plant.name }}</h2>
+
       <img
         src="{{ plant.url_picture }}"
         class="card-img"
@@ -8,14 +10,13 @@
       />
 
       <div class="product-content">
+        Avis :
         <app-avis-bar></app-avis-bar>
       </div>
       <div>
-        <h2>{{ plant.name }}</h2>
-
-        <h2>{{ plant.breadcrumb_label }}</h2>
+        <h2>Catégorie : {{ plant.breadcrumb_label }}</h2>
       </div>
-      <span class="align-bottom"> {{ plant.unitprice_ati }} € </span>
+      <span class="align-bottom">Prix : {{ plant.unitprice_ati }} € </span>
       <div>
         <h4>Stock : {{ plant.qty }}</h4>
       </div>
