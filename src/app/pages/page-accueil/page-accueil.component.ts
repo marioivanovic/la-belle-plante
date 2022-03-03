@@ -10,7 +10,6 @@ import { Options, LabelType } from '@angular-slider/ngx-slider';
   styleUrls: ['./page-accueil.component.scss']
 })
 export class PageAccueilComponent implements OnInit {
-  // private data!: any[]; same as below
   private data: any[] | undefined;
   public listCategories!: string[];
   private subListProduct: Subscription;
@@ -39,8 +38,6 @@ export class PageAccueilComponent implements OnInit {
       response => {
         this.data = response;
         this.listCategories = _.uniq(this.data.map(x => x.breadcrumb_label));
-        console.log('List =>', this.listCategories);
-
         response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
         this.listProduct = [...response];
       }
