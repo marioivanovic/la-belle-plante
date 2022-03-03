@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrlApi: 'http://localhost:3000'
+  baseUrlApi: 'https://la-belle-plante-test.herokuapp.com'
 };
 
 /*
