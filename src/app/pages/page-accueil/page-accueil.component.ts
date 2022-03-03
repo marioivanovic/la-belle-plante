@@ -60,6 +60,8 @@ export class PageAccueilComponent implements OnInit {
   // Methode de cycle de vie de mon composant qui est executee
   // juste avant l'instance de mon composant soit detruite
 
+  //Test
+
   ngOnDestroy(): void {
     this.subListProduct.unsubscribe();
   }
