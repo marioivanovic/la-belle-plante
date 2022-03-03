@@ -68,7 +68,7 @@ export class PageAccueilComponent implements OnInit {
     console.log(term);
     this.plantService.subjectListProduct$.subscribe(products => {
       if (term.trim() != '') {
-      this.listProduct = products.filter(product => {
+      this.listProductFiltered = products.filter(product => {
           return (product.name.toLowerCase().indexOf(term.toLowerCase()) > -1)
       })
     } else {
