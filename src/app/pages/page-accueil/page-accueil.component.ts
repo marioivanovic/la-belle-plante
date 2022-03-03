@@ -10,9 +10,8 @@ import { Options, LabelType } from '@angular-slider/ngx-slider';
   styleUrls: ['./page-accueil.component.scss']
 })
 export class PageAccueilComponent implements OnInit {
-  // private data!: any[]; same as below
-  private data: any[] | undefined; /* Declare le type de ma propriété */
-  public listCategories!: string[]; /* ! : type of prop could be undefined */
+  private data: any[] | undefined;
+  public listCategories!: string[];
   private subListProduct: Subscription;
   public listProduct!: any[];
   public term!: '';
