@@ -34,6 +34,8 @@ export class FilterSideBarComponent implements OnInit {
     }
     // console.log(this.selectedCategory);
      this.filterArray.emit(this.selectedCategory);
+
+  public onChangeValue(eventValue: any): void {
   }
 
 
