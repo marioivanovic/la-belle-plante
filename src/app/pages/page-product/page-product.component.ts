@@ -33,12 +33,8 @@ export class PageProductComponent implements OnInit {
       this.plantService.getById(id).subscribe(product => {
         console.log('detail ----> ', product);
         this.data = product;
-        this.plant = _.uniq(this.data.map(x => x));
-        console.log('Plant =>', this.plant[0]);
-
-        this.plant = product[0];
+        this.plant = product;
       });
-      this.plantService.getById(id);
     }
   }
 
