@@ -1,11 +1,7 @@
-<div class="plant card" style="width: 14rem">
+<div *ngIf="plant.url_picture" class="plant card" style="width: 14rem">
   <app-icon class="like" [name]="'heart'" [color]="'#e35d6a'"></app-icon>
 
-  <img
-    src="{{ plant.url_picture }}"
-    class="card-img-top"
-    alt="image de {{ plant.name }}"
-  />
+  <img src="{{ plant.url_picture }}" class="card-img-top" [alt]="plant.name" />
   <div class="card-body">
     <h6 class="card-title">{{ plant.name }}</h6>
     <div class="card-content">
