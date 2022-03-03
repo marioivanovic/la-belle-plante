@@ -1,19 +1,32 @@
 .overview {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: 80vh;
+}
+
+div {
+  padding: 2em;
 }
 
 .row {
   margin-top: 3em;
   height: 80vh;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9em;
 }
 
 .card-img {
-  height: 200px;
-  width: 250px;
+  height: 300px;
+  width: 350px;
 }
 
 .btn {
   width: 20%;
   height: 45px;
+}
+
+div {
+  padding: 2em;
 }

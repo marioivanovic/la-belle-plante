@@ -1,9 +1,21 @@
 <div *ngIf="plant" class="plant card" style="width: 14rem">
   <app-icon class="like" [name]="'heart'" [color]="'#e35d6a'"></app-icon>
 
-  <img src="{{ plant?.url_picture }}" class="card-img-top" [alt]="plant.name" />
+  <a
+    [routerLink]="['/product/']"
+    [queryParams]="{ id: plant.id }"
+    queryParamsHandling="merge"
+    class="link"
+    ><img src="{{ plant?.url_picture }}" class="card-img-top" [alt]="plant.name"
+  /></a>
   <div class="card-body">
-    <h6 class="card-title">{{ plant?.name }}</h6>
+    <a
+      [routerLink]="['/product/']"
+      [queryParams]="{ id: plant.id }"
+      queryParamsHandling="merge"
+      class="link"
+      ><h6 class="card-title">{{ plant?.name }}</h6></a
+    >
     <div class="card-content">
       <app-avis-bar></app-avis-bar>
     </div>
@@ -17,7 +29,7 @@
         [queryParams]="{ id: plant.id }"
         queryParamsHandling="merge"
         class="btn btn-success"
-        >Pour moi !</a
+        >Voir</a
       >
     </div>
   </div>

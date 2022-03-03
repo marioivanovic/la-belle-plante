@@ -9,11 +9,6 @@ import * as _ from 'underscore';
   styleUrls: ['./page-product.component.scss']
 })
 export class PageProductComponent implements OnInit {
-
-  private data: any[] | undefined;
-
-  // private subListProduct: Subscription;
-  // public listProduct!: any[];
   private data: any[] | undefined;
   public plant: any;
 
@@ -21,21 +16,10 @@ export class PageProductComponent implements OnInit {
     private plantService: PlantService,
     private active: ActivatedRoute
   ) {
-
-    // this.subListProduct = this.plantService.subjectListProduct$.subscribe(
-    //   (response) => {
-    //     this.data = response;
-    //     this.listProduct = _.uniq(this.data.map((x) => x));
-    //     response.length = 40; // juste pour le dev dans notre contexte d'apprentissage
-    //     this.listProduct = [...response];
-    //   }
-    // );
-    // this.plantService.getListProductsChaud();
     const id = this.active.snapshot.queryParamMap.get('id');
 
     if (id) {
       this.plantService.getById(id).subscribe(product => {
-        console.log('detail ----> ', product);
         this.data = product;
         this.plant = product;
       });
