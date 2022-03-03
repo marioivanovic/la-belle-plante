@@ -84,7 +84,6 @@ export class PageAccueilComponent implements OnInit {
         this.listProductFiltered = listProductFiltered.filter(product => {
           return product.unitprice_ati >= $event.value && product.unitprice_ati <= $event.highValue
         });
-        // console.log("yoo")
         // console.log($event.value)
         // console.log($event.highValue)
         console.log(listProductFiltered)
@@ -116,7 +115,8 @@ export class PageAccueilComponent implements OnInit {
       this.listProductFiltered = this.listProduct.filter(x => event.includes(x.breadcrumb_label));
       this.listProductFiltered = this.listProductFiltered.filter(x => x.unitprice_ati >= this.tab[0] && x.unitprice_ati <= this.tab[1]);
     } else {
-      this.listProductFiltered = this.listProduct
+      this.listProductFiltered = this.listProduct;
+      window.location.reload();
     }
   }
 
