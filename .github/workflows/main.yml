@@ -64,7 +64,7 @@ jobs:
           path: ./build
 
       - name : Install SSH Key
-      - uses: shimataro/ssh-key-action@v2 # This is the action
+        uses: shimataro/ssh-key-action@v2 # This is the action
         with:
           key: ${{secrets.SECRET_PRIVATE_KEY}}
           app_name: "labelleplantetest" #Must be unique in Heroku
