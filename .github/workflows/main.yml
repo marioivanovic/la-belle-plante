@@ -74,5 +74,3 @@ jobs:
           
       - name: Deploy with rsync
         run: rsync -avz ./dist ${{secrets.SECRET_SSH_USER}}@${{secrets.SSH_HOST}}:/home/mario936ivanovic936/
-
-    #  TO COMPLETE TO DEPLOY
