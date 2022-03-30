@@ -1,74 +1,73 @@
 name: labelleplante
-on: 
+on:
   push:
-    branches: [ development ]
+    branches: [development]
 
   workflow_dispatch:
 
 jobs:
+  # test:
+  #   runs-on: ubuntu-latest
 
-  test:
-  
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Use Node.js
-      uses: actions/setup-node@v2
-      with: 
-        node-version: '16.x'
+  #   steps:
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: "16.x"
 
-    - uses: actions/checkout@v2
+  #     - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: npm install
+  #     - name: Install dependencies
+  #       run: npm install
 
-     - name: lint
-       run: npm run lint
-    
-    - name: Unit tests
-      run: npm run test
-    
-  build: 
-    needs: test
+  #     - name: lint
+  #       run: npm run lint
+
+  #     - name: Unit tests
+  #       run: npm run test
+
+  build:
+    # needs: test
     runs-on: ubuntu-latest
 
     steps:
-    - name: Use Node.js
-      uses: actions/setup-node@v2
-      with: 
-        node-version: '16.x'
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16.x"
 
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: npm install
-      
-    - name: Build app
-      run: npm run build:prod
-    
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with: 
-        name: devops-test-${{ github.run_id }}-${{ github.run_number }}
-        path: ./dist/devops-test
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build app
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: devops-test-${{ github.run_id }}-${{ github.run_number }}
+          path: ./dist/devops-test
 
   deploy: 
-    needs: build
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with: 
-          name: devops-test-${{ github.run_id }}-${{ github.run_number }}
-          path: ./build
+   needs: build
+   runs-on: ubuntu-latest
 
-      - name : Install SSH Key
-        uses: shimataro/ssh-key-action@v2 # This is the action
-        with:
-          key: ${{secrets.SECRET_PRIVATE_KEY}}
-          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
-          run: ssh-keyscan -H ${{secrets.SSH_HOST}} >> ~/.ssh/known_hosts
-          
-      - name: Deploy with rsync
-        run: rsync -avz ./dist ${{secrets.SECRET_SSH_USER}}@${{secrets.SSH_HOST}}:/home/mario936ivanovic936/
+   steps:
+   - name: Download artifact
+     uses: actions/download-artifact@v2
+     with: 
+      name: devops-test-${{ github.run_id }}-${{ github.run_number }}
+      path: ./build
+
+   - name : Install SSH Key
+     uses: shimataro/ssh-key-action@v2 # This is the action
+     with:
+      key: ${{secrets.SECRET_PRIVATE_KEY}}
+      known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      run: ssh-keyscan -H ${{secrets.SSH_HOST}} >> ~/.ssh/known_hosts
+      
+   - name: Deploy with rsync
+     run: rsync -avz ./dist ${{secrets.SECRET_SSH_USER}}@${{secrets.SSH_HOST}}:/home/mario936ivanovic936/
+    #  TO COMPLETE TO DEPLOY
