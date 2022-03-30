@@ -72,6 +72,6 @@ jobs:
           known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
           run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deploy with rsync
-          run: rsync -avz ./dist/ ${{secrets.SECRET_SSH_USER}}@${{secrets.SSH_HOST}}:/home/mario936ivanovic936/
+        run: rsync -avz ./dist ${{secrets.SECRET_SSH_USER}}@${{secrets.SSH_HOST}}:/home/mario936ivanovic936/
 
     #  TO COMPLETE TO DEPLOY
